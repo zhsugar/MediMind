@@ -13,11 +13,11 @@ export default function Profile() {
         <View className='avatar-container'>
           <Image
             className='avatar'
-            src='https://img.icons8.com/color/96/person-male.png'
+            src={require('../../assets/me.png')}
           />
         </View>
-        <Text className='username'>用户名</Text>
-        <Text className='user-desc'>MediMind会员</Text>
+        <Text className='username'>白糖</Text>
+        <Text className='user-desc'>医小慧相伴，每一天都健康在线</Text>
       </View>
 
       <View className='profile-content'>

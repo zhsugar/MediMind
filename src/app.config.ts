@@ -23,7 +23,7 @@ export default defineAppConfig({
       },
       {
         pagePath: 'pages/profile/index',
-        text: '我的',
+        text: '档案',
         iconPath: './assets/profile.png',
         selectedIconPath: './assets/profile-active.png'
       }

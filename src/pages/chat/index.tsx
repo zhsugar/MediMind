@@ -11,18 +11,18 @@ export default function Chat() {
   ])
   const [inputValue, setInputValue] = useState('')
   const scrollViewRef = useRef(null)
-  
+
   // 页面加载时滚动到底部
   useLoad(() => {
-    console.log('聊天页面加载成功')
+    console.log('问诊页面加载成功')
     scrollToBottom()
   })
-  
+
   // 消息更新时滚动到底部
   useEffect(() => {
     scrollToBottom()
   }, [messages])
-  
+
   // 滚动到底部的函数
   const scrollToBottom = () => {
     setTimeout(() => {
@@ -34,7 +34,7 @@ export default function Chat() {
         if (res && res[2] && res[2].length > 0) {
           const lastItem = res[2][res[2].length - 1]
           const scrollView = res[1]
-          
+
           if (lastItem && scrollView && scrollViewRef.current) {
             const scrollTop = lastItem.top - scrollView.top + 500
             scrollViewRef.current.scrollTop = scrollTop
@@ -46,17 +46,17 @@ export default function Chat() {
 
   const handleSend = () => {
     if (!inputValue.trim()) return
-    
+
     // 添加用户消息
     const newUserMessage = {
       id: messages.length + 1,
       text: inputValue,
       isAI: false
     }
-    
+
     setMessages([...messages, newUserMessage])
     setInputValue('')
-    
+
     // 模拟AI回复
     setTimeout(() => {
       const aiResponse = {
@@ -70,14 +70,14 @@ export default function Chat() {
 
   return (
     <View className='chat-page'>
-      <ScrollView 
+      <ScrollView
         className='message-list'
         scrollY
         scrollWithAnimation
         ref={scrollViewRef}
       >
         {messages.map(msg => (
-          <View 
+          <View
             key={msg.id}
             id={`msg-${msg.id}`}
             className={`message-item ${msg.isAI ? 'ai-message' : 'user-message'}`}
@@ -91,7 +91,7 @@ export default function Chat() {
           </View>
         ))}
       </ScrollView>
-      
+
       <View className='input-area'>
         <Input
           className='message-input'

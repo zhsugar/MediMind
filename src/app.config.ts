@@ -17,7 +17,7 @@ export default defineAppConfig({
     list: [
       {
         pagePath: 'pages/chat/index',
-        text: '聊天',
+        text: '问诊',
         iconPath: './assets/chat.png',
         selectedIconPath: './assets/chat-active.png'
       },

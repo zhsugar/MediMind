@@ -8,8 +8,8 @@ interface TabBarProps {
 
 export default function TabBar({ current }: TabBarProps) {
   const tabs = [
-    { title: '聊天', icon: '💬', path: '/pages/chat/index' },
-    { title: '我的', icon: '👤', path: '/pages/profile/index' }
+    { title: '问诊', path: '/pages/chat/index' },
+    { title: '档案', path: '/pages/profile/index' }
   ]
 
   const handleTabClick = (path: string) => {
@@ -21,7 +21,7 @@ export default function TabBar({ current }: TabBarProps) {
   return (
     <View className='tab-bar'>
       {tabs.map(tab => (
-        <View 
+        <View
           key={tab.path}
           className={`tab-item ${tab.path.includes(current) ? 'active' : ''}`}
           onClick={() => handleTabClick(tab.path)}

@@ -4,15 +4,15 @@ import './index.scss'
 
 export default function Profile() {
   useLoad(() => {
-    console.log('个人页面加载成功')
+    console.log('档案页面加载成功')
   })
 
   return (
     <View className='profile-page'>
       <View className='profile-header'>
         <View className='avatar-container'>
-          <Image 
-            className='avatar' 
+          <Image
+            className='avatar'
             src='https://img.icons8.com/color/96/person-male.png'
           />
         </View>

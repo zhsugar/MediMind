@@ -1,3 +1,3 @@
 export default definePageConfig({
-  navigationBarTitleText: '聊天咨询'
+  navigationBarTitleText: '问诊咨询'
 })

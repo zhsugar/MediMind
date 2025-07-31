@@ -26,26 +26,22 @@ export default function Chat() {
   // 滚动到底部的函数
   const scrollToBottom = () => {
     setTimeout(() => {
-      createSelectorQuery()
-        .select('.message-list')
-        .boundingClientRect()
-        .exec(res => {
-          if (res && res[0]) {
-            const scrollHeight = res[0].height
-            createSelectorQuery()
-              .select('.message-list')
-              .scrollOffset()
-              .exec(res2 => {
-                if (res2 && res2[0]) {
-                  const scrollTop = scrollHeight * 2
-                  if (scrollViewRef.current) {
-                    scrollViewRef.current.scrollTop = scrollTop
-                  }
-                }
-              })
+      const query = createSelectorQuery()
+      query.selectViewport().scrollOffset()
+      query.select('.message-list').boundingClientRect()
+      query.selectAll('.message-item').boundingClientRect()
+      query.exec(function(res) {
+        if (res && res[2] && res[2].length > 0) {
+          const lastItem = res[2][res[2].length - 1]
+          const scrollView = res[1]
+          
+          if (lastItem && scrollView && scrollViewRef.current) {
+            const scrollTop = lastItem.top - scrollView.top + 500
+            scrollViewRef.current.scrollTop = scrollTop
           }
-        })
-    }, 100)
+        }
+      })
+    }, 200)
   }
 
   const handleSend = () => {

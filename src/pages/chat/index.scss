@@ -3,19 +3,27 @@
   flex-direction: column;
   height: 100vh;
   background-color: #f7f7f7;
+  box-sizing: border-box;
+  position: relative;
 }
 
 .message-list {
-  flex: 1;
-  padding: 30rpx;
-  padding-bottom: 180rpx;
-  overflow-y: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 140rpx;
+  padding: 20rpx 0;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
 .message-item {
   display: flex;
   margin-bottom: 30rpx;
   width: 100%;
+  box-sizing: border-box;
+  padding: 0 20rpx;
   
   &.ai-message {
     flex-direction: row;
@@ -23,30 +31,33 @@
     .message-avatar {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: #fff;
+      flex-shrink: 0;
     }
     
     .message-content {
       background-color: #fff;
       border-radius: 20rpx 20rpx 20rpx 0;
       margin-left: 20rpx;
-      margin-right: 60rpx;
+      margin-right: 20rpx;
+      max-width: 65%;
     }
   }
   
   &.user-message {
     flex-direction: row-reverse;
-    justify-content: flex-start;
     
     .message-avatar {
       background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
       color: #fff;
+      flex-shrink: 0;
     }
     
     .message-content {
       background-color: #B8E7BB;
       border-radius: 20rpx 20rpx 0 20rpx;
       margin-right: 20rpx;
-      margin-left: 60rpx;
+      margin-left: 20rpx;
+      max-width: 65%;
     }
   }
 }
@@ -66,9 +77,9 @@
 .message-content {
   padding: 20rpx 30rpx;
   box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
-  max-width: 70%;
   min-width: 120rpx;
   word-break: break-word;
+  box-sizing: border-box;
 }
 
 .message-text {
@@ -83,12 +94,12 @@
   background-color: #fff;
   border-top: 1rpx solid #eee;
   box-shadow: 0 -2rpx 10rpx rgba(0, 0, 0, 0.05);
-  position: fixed;
-  bottom: 100rpx;
+  position: absolute;
+  bottom: 0;
   left: 0;
   right: 0;
   z-index: 10;
-  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
+  box-sizing: border-box;
 }
 
 .message-input {
